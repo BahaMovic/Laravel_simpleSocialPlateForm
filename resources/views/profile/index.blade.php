@@ -106,6 +106,7 @@ $(".btn-pref .btn").click(function () {
 
               
             </div>
+             @if(Auth::user() && Auth::user()->id == $user->id)
             <div class="box-footer">
               <div class="input-group">
           <form action="{{URL::to('/Add/post')}}" method="post">
@@ -129,6 +130,8 @@ $(".btn-pref .btn").click(function () {
               </form>
               </div>
             </div>
+            <hr>
+            @endif
             <br><br>
             <div class="box-body chat" id="chat-box">
               <!-- chat item -->
@@ -143,26 +146,39 @@ $(".btn-pref .btn").click(function () {
                   </a>
                   {{$post->text}}
                 </p>
+
+                <!-- Commente start here -->
                 <div class="attachment">
+                  <h5 style="margin: 0 ; padding: 0">comments</h5>
+                <hr>
+                <div id="com_{{$post->id}}">
+                @foreach($post->comments as $comment)
                   <div class="direct-chat-msg">
                       <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">{{$user->name}}</span>
-                        <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
+                        <span class="direct-chat-name pull-left">{{$comment->user->name}}</span>
+                        <span class="direct-chat-timestamp pull-right">{{$comment->created_at}}</span>
                       </div>
                       <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="\{{$user->image}}" alt="user image">
+                      <img class="direct-chat-img" src="\{{$comment->user->image}}" alt="user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
+                        {{$comment->text}}
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
+                    <hr>
+                @endforeach
+              </div>
+                @if(!Auth::guest())
+              
                   <div class="input-group">
-                <input class="form-control" placeholder="Type Comment...">
+                <input name="text" id="text_{{$post->id}}" class="form-control" placeholder="Type Comment...">
                 <div class="input-group-btn">
-                  <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                <button type="submit" post_id="{{$post->id}}" class="postComment btn btn-success"><i class="fa fa-plus"></i></button>
                 </div>
               </div>
+             
+              @endif
 
                 </div>
                 <!-- /.attachment -->
@@ -188,4 +204,25 @@ $(".btn-pref .btn").click(function () {
             
     
 </div>
+
+<script>
+  $(".postComment").click(function(){
+
+                    var post_id = $(this).attr("post_id");
+                    var text= $("#text_"+post_id).val();
+                  
+                    $.ajax({
+                      type: 'post',
+                      url: "{{url('/add/comment')}}",
+                      data:"post_id="+post_id+"&text="+text+"&_token={{csrf_token()}}",
+                      success: function( data ){
+                                $("#text_"+post_id).val("");
+                                $("#com_"+post_id).append(data);
+                            }
+                      
+                  });
+
+                  });
+</script>
+
 @endsection
