@@ -12,7 +12,7 @@ class profileController extends Controller
     public function show( $id)
     {
     	$user = User::findOrFail($id);
-        $posts = Post::where('user_id',"=",$id)->get();
+        $posts = Post::where('user_id',"=",$id)->orderBy('id', 'desc')->get();
     	return view("profile.index",compact("user","posts"));
         
     }

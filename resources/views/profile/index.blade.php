@@ -193,10 +193,10 @@ $(".btn-pref .btn").click(function () {
           </div>
         </div>
         <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
+          @include("profile.layouts.about")
         </div>
         <div class="tab-pane fade in" id="tab3">
-          <h3>This is tab 3</h3>
+          @include("profile.layouts.hob")
         </div>
       </div>
     </div>

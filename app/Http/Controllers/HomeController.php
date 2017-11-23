@@ -23,13 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('home',compact('posts'));
     }
 
     public function show($id)
     {
-        $posts = Post::where('cat_id',"=",$id)->get();
+        $posts = Post::where('cat_id',"=",$id)->orderBy('id', 'desc')->get();
         return view('home',compact('posts'));
     }
 }
