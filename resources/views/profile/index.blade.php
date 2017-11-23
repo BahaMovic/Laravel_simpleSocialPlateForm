@@ -102,7 +102,7 @@ $(".btn-pref .btn").click(function () {
             <div class="box-header">
               <i class="fa fa-comments-o"></i>
 
-              <h3 class="box-title">Chat</h3>
+              <h3 class="box-title">Profile</h3>
 
               
             </div>
@@ -113,7 +113,7 @@ $(".btn-pref .btn").click(function () {
             <div class="box-footer">
               <div class="input-group">
               
-                <input name="text" style="width: 1000px" class="form-control" placeholder="Type message...">
+                <input name="text" style="width: 1000px" class="form-control" placeholder="Type Post...">
                        <select name="cat_id" style="height: 35px">
                         <option value="1">sport</option>
                         <option value="2">Art</option>
@@ -150,7 +150,7 @@ $(".btn-pref .btn").click(function () {
                         <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
                       </div>
                       <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="\{{$user->image}}" alt="message user image">
+                      <img class="direct-chat-img" src="\{{$user->image}}" alt="user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         Working with AdminLTE on a great new app! Wanna join?
@@ -158,7 +158,7 @@ $(".btn-pref .btn").click(function () {
                       <!-- /.direct-chat-text -->
                     </div>
                   <div class="input-group">
-                <input class="form-control" placeholder="Type message...">
+                <input class="form-control" placeholder="Type Comment...">
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
                 </div>
