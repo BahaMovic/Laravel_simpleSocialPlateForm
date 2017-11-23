@@ -112,3 +112,34 @@
 .inputfile + label * {
     pointer-events: none;
 }
+.box.box-success {
+    border-top-color: #00a65a;
+        box-sizing: border-box;
+            font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+            font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.42857143;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    color: #333;
+}
+:after, :before {
+        box-sizing: border-box;
+}

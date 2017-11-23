@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\imageRequest;
 use App\User;
+use App\Post;
 use Auth;
 class profileController extends Controller
 {
     public function show( $id)
     {
     	$user = User::findOrFail($id);
- 
-    	return view("profile.index",compact("user"));
+        $posts = Post::where('user_id',"=",$id)->get();
+    	return view("profile.index",compact("user","posts"));
         
     }
 

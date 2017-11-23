@@ -41,7 +41,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}" style="font-family: HARRP ; font-size: 28px">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="font-family: HARRP ; display: block; font-size: 28px">
                         Hogwarts Houses
                     </a>
                 </div>
