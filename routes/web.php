@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('profile/{id}','profileController@show');
+
+Route::post('/edit/photo','profileController@editImage');

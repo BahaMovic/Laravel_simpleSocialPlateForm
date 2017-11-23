@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @yield("header")
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
@@ -19,6 +19,12 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+<style>
+@font-face {
+    font-family: HARRP;
+    src: url(fonts/HARRP___.TTF);
+}
+</style>
 </head>
 <body>
     <div id="app">
@@ -35,8 +41,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/') }}" style="font-family: HARRP ; font-size: 28px">
+                        Hogwarts Houses
                     </a>
                 </div>
 
@@ -53,10 +59,16 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                        <li>
+                            <a href="{{url('profile/'.Auth::user()->id)}}">
+                                    profile
+                                </a>
+                        </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                                
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
