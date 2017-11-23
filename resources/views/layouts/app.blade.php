@@ -117,6 +117,10 @@
     </div>
 
     <!-- Scripts -->
+       <div class="container" style="margin-left: 20%; margin-bottom: 20px">
+        Copyright <a href="https://github.com/BahaMovic">Bahaa Eldin</a>
+    </div>
     <script src="/js/app.js"></script>
+ 
 </body>
 </html>
