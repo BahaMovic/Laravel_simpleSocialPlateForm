@@ -26,3 +26,5 @@ Route::post('/edit/photo','profileController@editImage');
 Route::post('/Add/post','postController@store');
 
 Route::post('/add/comment','commentController@store');
+
+Route::get('/show/{id}', 'HomeController@show');
